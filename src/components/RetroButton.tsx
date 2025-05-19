@@ -7,6 +7,8 @@ interface RetroButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>
   size?: "sm" | "md" | "lg";
   glitch?: boolean;
   children: React.ReactNode;
+  as?: React.ElementType;
+  href?: string;
 }
 
 const RetroButton: React.FC<RetroButtonProps> = ({
@@ -15,6 +17,8 @@ const RetroButton: React.FC<RetroButtonProps> = ({
   size = "md",
   glitch = false,
   children,
+  as: Component = "button",
+  href,
   ...props
 }) => {
   const colorMap = {
@@ -30,8 +34,10 @@ const RetroButton: React.FC<RetroButtonProps> = ({
     lg: "px-8 py-3 text-base",
   };
 
+  const componentProps = Component === "a" ? { href, ...props } : props;
+
   return (
-    <button
+    <Component
       className={cn(
         "font-pixel text-white uppercase tracking-wider inline-block transition-all relative active:translate-y-1 active:shadow-[0_2px_0] disabled:opacity-50 disabled:pointer-events-none",
         colorMap[color],
@@ -39,10 +45,10 @@ const RetroButton: React.FC<RetroButtonProps> = ({
         glitch && "hover:animate-pixel-glitch",
         className
       )}
-      {...props}
+      {...componentProps}
     >
       {children}
-    </button>
+    </Component>
   );
 };
 
