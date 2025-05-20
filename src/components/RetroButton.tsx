@@ -1,6 +1,7 @@
 
 import React from "react";
 import { cn } from "../lib/utils";
+import { LucideIcon } from "lucide-react";
 
 interface RetroButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   color?: "green" | "pink" | "blue" | "yellow";
@@ -9,6 +10,8 @@ interface RetroButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>
   children: React.ReactNode;
   as?: React.ElementType;
   href?: string;
+  icon?: LucideIcon;
+  iconPosition?: "left" | "right";
 }
 
 const RetroButton: React.FC<RetroButtonProps> = ({
@@ -19,6 +22,8 @@ const RetroButton: React.FC<RetroButtonProps> = ({
   children,
   as: Component = "button",
   href,
+  icon: Icon,
+  iconPosition = "left",
   ...props
 }) => {
   const colorMap = {
@@ -47,7 +52,17 @@ const RetroButton: React.FC<RetroButtonProps> = ({
       )}
       {...componentProps}
     >
+      {Icon && iconPosition === "left" && (
+        <span className="inline-block mr-2 -mt-1">
+          <Icon size={size === "sm" ? 12 : size === "md" ? 16 : 20} />
+        </span>
+      )}
       {children}
+      {Icon && iconPosition === "right" && (
+        <span className="inline-block ml-2 -mt-1">
+          <Icon size={size === "sm" ? 12 : size === "md" ? 16 : 20} />
+        </span>
+      )}
     </Component>
   );
 };
