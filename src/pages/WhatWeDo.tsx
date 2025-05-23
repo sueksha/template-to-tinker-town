@@ -81,7 +81,7 @@ const WhatWeDo = () => {
           </div>
         </RetroContainer>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/*<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <RetroContainer border="green">
             <h3 className="font-pixel text-retro-pink text-lg mb-4">OUR EXPERTISE</h3>
             <div className="space-y-3 mb-4">
@@ -138,7 +138,7 @@ const WhatWeDo = () => {
               </div>
             </div>
           </RetroContainer>
-        </div>
+        </div>*/}
       </div>
       
       {/* Quote */}
