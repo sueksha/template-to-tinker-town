@@ -71,3 +71,8 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+
+adding the link to the animation thing here cause i didn't know how to create folder so i just made new repo
+link -> https://github.com/alwaysdumped/text-animation.git
+
